@@ -53,6 +53,24 @@ app.get('/chords', async (req, res) => {
         res.status(400).json(error);
     }
 });
+// chord delete route-----------
+app.delete('/chord/:id', async (req, res) => {
+    try {
+        res.json(await Chords.findByIdAndRemove(req.params.id));
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+// chord update route------------
+app.put('/chords/:id', async(req, res) => {
+    try {
+        res.json(await Chords.findByIdAndUpdate(req.params.id, req.body, {
+            new: true
+        }));
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
 // chords create route----------
 app.post("/chords", async (req, res) => {
     try {
