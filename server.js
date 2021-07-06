@@ -27,11 +27,17 @@ app.listen(PORT, ()=> console.log("Express is listening on port:", PORT));
 const ChordsSchema = new mongoose.Schema({
     author: String,
     title: String,
-    colors: {
+    tones: {
         bass: Number,
         tenor: Number,
         alto: Number,
         soprano: Number
+    },
+    colors: {
+        bass: String,
+        tenor: String,
+        alto: String,
+        soprano: String
     },
 }, {timestamps: true });
 
